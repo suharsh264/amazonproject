@@ -1,10 +1,30 @@
 <html>
     <head>
         <title>Amazon Website</title>
-        <link rel="stylesheet" src="amazonStyleSheet.css">
+        <link rel="stylesheet" href="amazonStyleSheet.css">
+        <a href="https://www.flaticon.com/free-icons/search" title="search icons"></a>
     </head>
     <body>
-        <h1>amazon landing page</h1>
+       <header>
+        <nav>
+            <span id="logo"><img src="./images/amazonlogo.png" ></span>
+            <div id="searchBox">
+            <input type="text" Placeholder="Search"><button id="searchIconbtn"><img src="./images/searchicon.png"></button>
+            <div id="dropdown">
+                <span class="dropdowntext">Lang</span><img src="./images/dropdownicon.svg" id="dropdownimg">
+                <ul id="languagedropDown" class="langdropdownclassone">
+                </ul>
+                </div>
+            </div>
+            <ul>
+               <li>Returns<br><span>& Order</span></li>
+               <li id="shoppingCart"><img src="./images/cart.png" style="filter:invert(1); width:55px; height:55px"><span id="cartquantity">0</span>Cart</li>
+           </ul>
+        </nav>
+       </header>
+       <main>
+        <div></div>
+       </main>
         <script src="amazonweb.js"></script>
     </body>
 </html>
