@@ -33,14 +33,21 @@ nav span img{
     /* mix-blend-mode:multiply; */
 }
 
+#logo img, ul li{
+    padding:10px 8px;
+}
+#logo img:hover, ul li:hover{
+    border:1px solid white;
+    cursor:pointer;
+}
+
 #searchBox{
     /* background-color:yellow; */
-    width:800px;
+    width:930px;
     height:100%;
     display:flex;
     justify-content:center;
     align-items:center;
-    width:40%;
 }
 
 #searchBox input{
@@ -137,30 +144,105 @@ nav ul{
     font-weight:bold;
     #cartquantity{
         position:absolute;
-        top:-10;
-        left:26;
+        top:-12;
+        left:35;
         font-size:20px;
     }
+}
+
+#cartquantity{
+    color:#f2941b;
 }
 
 /* Main Container Starts here....*/
 main{
     width:100%;
-    height:100%;
-    padding-top:20px;
+    padding:60px 30px;
     display:flex;
     justify-content:space-around;
-    align-items:auto;
     flex-wrap:wrap;
     background-color:darkblue;
+    row-gap:30px;
 }
 
-.maindivcontainer{
-    width:400px;
-    height: 500px;
+
+#CartBox{
+    width:350px;
+    height:470px;
     background-color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    gap:10px;
+    border-radius:5px;
+    padding-top:20px;
+    padding-bottom:20px;
+    h3{
+        display:flex;
+        align-items:center;
+        height:40px;
+        font-size:medium;
+        align-self:flex-start;
+    }
+}
+
+#productprice, #productrating{
+    align-self:flex-start;
+    margin-left:20px; 
+}
+    
+  
+#cartimagdiv{
+ width:100%;
+ height:270px;
+ object-fit:contain;
+ object-position:center;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ flex:1;
+}
+
+#cartDiscription{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    gap:8px;
+    flex:1;
+}
+#cartimagdiv img{
+    height:100%;
     border-radius:5px;
 }
 
+#addtocartbtn{
+        width:90%;
+        background-color:#ffce12;
+        border:none;
+        padding-top:10px;
+        padding-bottom:10px;
+        border-radius:25px;
+        font-weight:bold;
+        font-size:medium;
+}
+
+#imgName{
+    align-self:flex-start;
+    margin-left:20px;
+}
+
+/*Media Queries of the website starts here.....*/
+
+@media only screen and (Orientation: portrait){
+    main{
+    background-color:white;
+    } 
+    #CartBox{
+        border:1px solid grey;
+    }
+}
 
 

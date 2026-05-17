@@ -45,3 +45,46 @@ UldropdownEL.addEventListener('click', function(e){
      UldropdownEL.classList.toggle('seclangdropdownclass');
 });
 
+//main card items 
+
+let cartproductsitems = '';
+
+amazondataobj.forEach((cartitems)=>{
+   cartproductsitems += `
+        <div id="CartBox">
+            <div id="cartimagdiv">
+             <img src="${cartitems.img}">
+            </div>
+            <div id="cartDiscription">          
+            <span id="imgName"><h3>${cartitems.name}</h3></span>
+            <span id="productprice"><h4>₹${cartitems.price}</h4></span>
+            <div id="productrating">⭐⭐⭐⭐ <span id="productratingcount">${cartitems.rating.count}</span></div>
+            <button id="addtocartbtn">Add to Cart</button>
+            </div>
+        </div>`;
+}); 
+
+let maindisplayitems = document.querySelector('main');
+
+
+maindisplayitems.innerHTML = cartproductsitems;
+
+
+let count = 0;
+
+let cartCountEL = document.querySelector('#cartquantity');
+
+function increaseCartQuantity(){
+   count++;
+   console.log(count);
+   cartCountEL.textContent = count;
+}
+
+let addToCartBtndisplay = document.querySelectorAll('#addtocartbtn');
+
+addToCartBtndisplay.forEach((eachbtn)=>{
+    eachbtn.addEventListener('click',function(){
+        increaseCartQuantity();
+    });
+});
+
