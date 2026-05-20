@@ -1,7 +1,7 @@
 //imported the objects and variable data require for storage
 
-import {amazondataobj, Ullistname} from '../amazondata.js';
-import {cart} from '../cart.js';
+import {amazondataobj, Ullistname} from '../data/amazondata.js';
+import {cart} from '../data/cart.js';
 
 
 // Element for creating the language dropdown
