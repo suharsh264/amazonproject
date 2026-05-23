@@ -2,21 +2,127 @@
     padding:0;
     margin:0;
     box-sizing:border-box;
+    color:black;
+    font-family:Arial,sans-serif;
 }
 
 nav{
     width:100%;
     height:100px;
-    background-color:black;
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
-    #logo .logoimg{
-        width:170px;
-    }
-    #lockimg{
-        width:20px;
-        filter:invert(100%);
-    }
+    /* background-color:black; */
+    
 }
 
+#navinnerdiv{
+    height:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0px 5%;
+    position:sticky;
+    border-bottom:1px solid rgba(0, 0, 0, 0.329);
+    #logo img{
+        width:170px;
+    }
+    #lockimg img{
+        width:40px;
+        filter:invert(50%);
+    }
+    #checkoutText h3{
+        font-size:150%;
+    }
+}
+main{
+    width:100%;
+    height:100%;
+    display:flex;
+}
+#cartitemsdiv{
+    width:80%;
+    height:100%;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    flex-direction:column;
+    padding-top:40px;
+    gap:30px;
+    .innerdivcartitem{
+        height:40%;
+        border:1px solid grey;
+         border-radius:5px;
+         display:flex;
+         justify-content:center;
+         align-items:center;
+         padding:20px;
+         .innerimgcart{
+            width:100%;
+            height:100%;
+            display:flex;
+            align-items:center;
+            box-sizing:border-box;
+            img{
+                width:200px;
+            }
+            .cartdescription{
+                width:50%;
+                height:100%;
+                display:flex;
+                justify-content:center;
+                flex-direction:column;
+                align-items:flex-start;
+                font-size:120%;
+                gap:5px;
+                #quantitydiv{
+                    display:flex;
+                    gap:10px;
+                    a{
+                        color:blue;
+
+                    }
+                    
+                }
+                #quantitydiv a:hover{
+                     color:red;
+                }
+            }
+           
+    }
+   
+   
+}
+
+#deliveryoptiondiv{
+            width:40%;
+            line-height:30px;
+            padding:0px 30px;
+            display:flex;
+            flex-direction:column;
+            .dateoption{
+                width:180px;
+                display:flex;
+                gap:15px;
+                font-size:larger;
+                color:green;
+                font-weight:bold;
+            }
+        }
+
+aside{
+    width:40%;
+    height:50%;
+    padding-top:40px;
+   
+}
+
+#cartpricecalculatediv{
+    height:100%;
+     display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    div{
+        width:90%;
+        height:90%;
+        border:1px solid grey;
+        border-radius:5px;
+    }
+}
