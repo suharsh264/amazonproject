@@ -1,7 +1,7 @@
 //imported the objects and variable data require for storage
 
 import {amazondataobj, Ullistname} from '../data/amazondata.js';
-import {cart} from '../data/cart.js';
+import {cart, addToCart, increaseCartQuantity} from '../data/cart.js';
 
 
 // Element for creating the language dropdown
@@ -71,39 +71,11 @@ let maindisplayitems = document.querySelector('main');
 maindisplayitems.innerHTML = cartproductsitems;
 
 
-let count = 0;
-
-let cartCountEL = document.querySelector('#cartquantity');
-
-export function increaseCartQuantity(){
-   count++;
-   console.log(count);
-   cartCountEL.textContent = count;
-}
-
-
 document.querySelectorAll('#addtocartbtn').forEach((button)=>{
     button.addEventListener('click',function(){
-        increaseCartQuantity();
         let productid = button.dataset.productId;
-
-        let matchingitem;
-    
-        cart.forEach((item)=>{
-            if(productid === item.id){
-             matchingitem = item;
-            }
-        });
-
-        if(matchingitem){
-            matchingitem.quantity += 1;
-        }else{
-             cart.push({
-            id:`${productid}`,
-            quantity:1,
-        });
-        }
-        console.log(cart);
-    });
+        addToCart(productid);
+        increaseCartQuantity();
+        
 });
-
+});

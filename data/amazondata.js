@@ -102,7 +102,7 @@ amazondataobj.push({
 
  let [{id, img, name, price}] = amazondataobj;
 
- export {id, img, name, price};
+//  export {id, img, name, price};
 
 //Array for dropdown list
 export let Ullistname = ['English','Hindi','Marathi','Other'];
