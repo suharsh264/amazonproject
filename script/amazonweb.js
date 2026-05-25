@@ -75,11 +75,12 @@ let count = 0;
 
 let cartCountEL = document.querySelector('#cartquantity');
 
-function increaseCartQuantity(){
+export function increaseCartQuantity(){
    count++;
    console.log(count);
    cartCountEL.textContent = count;
 }
+
 
 document.querySelectorAll('#addtocartbtn').forEach((button)=>{
     button.addEventListener('click',function(){

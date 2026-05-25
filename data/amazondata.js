@@ -100,5 +100,9 @@ amazondataobj.push({
     deliverytype: 'Free delivery'
 });
 
+ let [{id, img, name, price}] = amazondataobj;
+
+ export {id, img, name, price};
+
 //Array for dropdown list
 export let Ullistname = ['English','Hindi','Marathi','Other'];

@@ -60,6 +60,7 @@ main{
             display:flex;
             align-items:center;
             box-sizing:border-box;
+            margin-left:5%;
             img{
                 width:200px;
             }
@@ -72,6 +73,7 @@ main{
                 align-items:flex-start;
                 font-size:120%;
                 gap:5px;
+                margin-left:10%;
                 #quantitydiv{
                     display:flex;
                     gap:10px;
