@@ -38,15 +38,16 @@ main{
     display:flex;
 }
 #cartitemsdiv{
-    width:80%;
+    width:60%;
     height:100%;
     display:flex;
     justify-content:flex-start;
-    align-items:center;
+    align-items:flex-end;
     flex-direction:column;
     padding-top:40px;
     gap:30px;
     .innerdivcartitem{
+        width:900px;
         height:40%;
         border:1px solid grey;
          border-radius:5px;
@@ -55,17 +56,28 @@ main{
          align-items:center;
          padding:20px;
          .innerimgcart{
-            width:100%;
+            width:80%;
             height:100%;
             display:flex;
             align-items:center;
+            flex-direction:column;
             box-sizing:border-box;
-            margin-left:5%;
             img{
                 width:200px;
             }
+            h1{
+                align-self:flex-start;
+                color:green;
+            }
+            #parentdivofdescription{
+                /* width:100%; */
+                height:100%;
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                gap:30px;
             .cartdescription{
-                width:50%;
+                
                 height:100%;
                 display:flex;
                 justify-content:center;
@@ -73,13 +85,17 @@ main{
                 align-items:flex-start;
                 font-size:120%;
                 gap:5px;
-                margin-left:10%;
+                /* margin-left:10%; */
+                .pricespan{
+                    color:rgb(188, 18, 18);
+                    font-weight:bold;
+                }
                 #quantitydiv{
                     display:flex;
                     gap:10px;
                     a{
-                        color:blue;
-
+                        color:rgb(31, 172, 220);
+                        text-decoration:none;
                     }
                     
                 }
@@ -87,6 +103,7 @@ main{
                      color:red;
                 }
             }
+        }
            
     }
    

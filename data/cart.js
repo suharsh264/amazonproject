@@ -1,4 +1,10 @@
-export let cart = [];
+export let cart = [{
+    cardid:1233,
+    quantity:2
+},{
+   cardid:1235,
+    quantity:4
+}];
 
 //adding matching product to cart Array
 export function addToCart(productId){
@@ -14,7 +20,7 @@ export function addToCart(productId){
             matchingitem.quantity += 1;
         }else{
             cart.push({
-            cardid:`${productId}`,
+            cardid:productId,
             quantity:1,
         });
         }
@@ -30,36 +36,7 @@ export function increaseCartQuantity(){
    console.log(count);
    cartCountEL.textContent = count;
 }
-let cartdivInnerHTML = document.querySelector('#cartitemsdiv');
 
-// cartdivInnerHTML.innerHTML += `<div class="innerdivcartitem">
-//                                                 <div class="innerimgcart">
-//                                                     <img src="${productimglink}">
-//                                                     <div class ="cartdescription">
-//                                                         <h3>${productname}</h3>
-//                                                         <span>${productprice}</span>
-//                                                         <div id="quantitydiv" class="quantitytext"><span>Qunantity:2</span><a href="#">Update</a><a href="#">Delete</a></div>
-//                                                 </div> 
-//                                                 </div>
-//                                                 <div id="deliveryoptiondiv">
-//                                                 <h4>Choose the delivery option</h4>
-//                                                 <div id="dateoption" class="dateoption">
-//                                                     <input type="radio" name="deliveryoption">
-//                                                     Tuesday, May 12
-//                                                 </div>
-//                                                 <div id="dateoption" class="dateoption">
-//                                                     <input type="radio" name="deliveryoption">
-//                                                     Tuesday, May 12
-//                                                 </div>
-//                                                 <div id="dateoption" class="dateoption">
-//                                                     <input type="radio" name="deliveryoption">
-//                                                     Tuesday, May 12
-//                                                 </div>
-//                                                 <div id="dateoption" class="dateoption">
-//                                                     <input type="radio" name="deliveryoption">
-//                                                     Tuesday, May 12
-//                                                 </div>
-//                                             </div>`;
 
 
 

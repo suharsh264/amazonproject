@@ -143,6 +143,10 @@ nav ul{
 #shoppingCart{
     position:relative;
     font-weight:bold;
+    a{
+        text-decoration:none;
+        color:white;
+    }
     #cartquantity{
         position:absolute;
         top:-12;
