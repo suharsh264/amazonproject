@@ -35,9 +35,6 @@ let mainElement = document.querySelector('main');
 console.log(mainElement);
 
 //ul dropdown id selected here....
-
-
-
 UldropdownEL.addEventListener('click', function(e){
     let dropdownUl = document.querySelector('.dropdowntext');
     console.log(e);
@@ -74,8 +71,9 @@ maindisplayitems.innerHTML = cartproductsitems;
 document.querySelectorAll('#addtocartbtn').forEach((button)=>{
     button.addEventListener('click',function(){
         let productid = button.dataset.productId;
+        console.log(productid);
         addToCart(productid);
-        increaseCartQuantity();
-        
+        let cartCountEL = document.querySelector('#cartquantity');
+        cartCountEL.textContent = increaseCartQuantity();
 });
 });
