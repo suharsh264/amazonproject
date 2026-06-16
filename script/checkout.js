@@ -5,19 +5,28 @@ let cartitemssummary = '';
 
 //Searching throught cart array
 cart.forEach((cartitems)=>{
-   const productId = cartitems.id;
    
+   
+    let productId = cartitems.id;
+
+    // console.log("Cart Item:", cartitems);
+    // console.log("Product ID from cart:", productId);
+    console.log(cartitems);
     let matchingProduct;
 
-    amazondataobj.forEach((product)=>{
-        if(product.id === productId){
+    amazondataobj.forEach((product) => {
+
+        if (String(product.id) === String(productId)) {
             matchingProduct = product;
         }
-    });
+
+    // console.log("Matching Product:", matchingProduct);
+        
+});
     
                 
     cartitemssummary += `
-                            <div class="innerdivcartitem" >
+                            <div class="innerdivcartitem js-div-cart-${matchingProduct.id}" >
                                     <div class="innerimgcart">
                                         <h1>Delivery Date: Tuesday, June 12</h1>
                                         <div id="parentdivofdescription">
@@ -74,9 +83,12 @@ document.querySelectorAll('.checkoutcardlinks').forEach((links)=>{
    links.addEventListener('click',function(){
         let productsid = parseInt(links.dataset.cartdivId, 10);
         removeFromCart(productsid);
-        console.log(cart);
+    
+        const deleteddiv = document.querySelector(`.js-div-cart-${productsid}`);
+        
+        deleteddiv.remove();
     })
-})
+});
 
 
 

@@ -1,20 +1,20 @@
 
 //Here the items when clicking on button gets added in the cart...
-export let cart = [{
-    id: 1233,
-    quantity: 1
-},{
-    id: 1234,
-    quantity: 3
-}];
+export let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-console.log(cart);
+// console.log(cart);
+
+function saveToLocalStorage(){
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
 //adding matching product to cart Array
 export function addToCart(productId){
     let matchingitem;
-    
+
         cart.forEach((cartitem)=>{
-            if(productId === cartitem.id){
+            
+            if(Number(productId) === Number(cartitem.id)){
              matchingitem = cartitem;
             }
         });
@@ -23,12 +23,14 @@ export function addToCart(productId){
             matchingitem.quantity += 1;
         }else{
             cart.push({
-            cardid:productId,
+            id:Number(productId),
             quantity:1,
         });
          
         }
         
+        saveToLocalStorage();
+        console.log(cart);
     };
 
     // console.log(document.readyState);
@@ -52,8 +54,10 @@ export function removeFromCart(cartitem){
     });
 
    cart = newCart;
+
+   saveToLocalStorage();
 }
 
-
+localStorage.removeItem('cart');
 
 
