@@ -4,6 +4,8 @@ import {amazondataobj} from '../data/amazondata.js';
 let cartitemssummary = '';
 
 //Searching throught cart array
+let matchingProduct;
+
 cart.forEach((cartitems)=>{
    
    
@@ -11,8 +13,8 @@ cart.forEach((cartitems)=>{
 
     // console.log("Cart Item:", cartitems);
     // console.log("Product ID from cart:", productId);
-    console.log(cartitems);
-    let matchingProduct;
+    // console.log(cartitems);
+    
 
     amazondataobj.forEach((product) => {
 
@@ -36,7 +38,7 @@ cart.forEach((cartitems)=>{
                                         <div class ="cartdescription">
                                             <h3>${matchingProduct.name}</h3>
                                             <span class="pricespan">$${matchingProduct.price}</span>
-                                            <div id="quantitydiv" class="quantitytext"><span>Qunantity:${cartitems.quantity}</span><a href="#" class="updateLink checkoutcardlinks">Update</a><a href="#" class="deleteLink checkoutcardlinks" data-cartdiv-id="${matchingProduct.id}">Delete</a></div>
+                                            <div id="quantitydiv" class="quantitytextdiv">Qunantity:<span class="QuantityText">${cartitems.quantity}<button class="updateLink checkoutcardlinks" id='data-productUpdateId-${matchingProduct.id}'>Update</button></span><button type='submit' class="deleteLink checkoutcardlinks" data-cartdiv-id="${matchingProduct.id}">Delete</button></div>
                                             </div>
                                     </div> 
                                     </div>
@@ -72,12 +74,16 @@ let cartItemDisplayDiv = document.querySelector('#cartitemsdiv');
     
 cartItemDisplayDiv.innerHTML = cartitemssummary;
 
-let checkoutquantitydisplay = document.querySelector('.checkoutspan');
 
-checkoutquantitydisplay.textContent = `${increaseCartQuantity()} Items`;
+let cartDivCount = cart.length;
+export function cartQuantityCounter(Count){
+        let checkoutquantitydisplay = document.querySelector('.checkoutspan');
+       
+        console.log(Count);
+        checkoutquantitydisplay.textContent = `${Count} Items`;
+}
 
-
-
+cartQuantityCounter(cartDivCount);
 
 document.querySelectorAll('.checkoutcardlinks').forEach((links)=>{
    links.addEventListener('click',function(){
@@ -87,10 +93,68 @@ document.querySelectorAll('.checkoutcardlinks').forEach((links)=>{
         const deleteddiv = document.querySelector(`.js-div-cart-${productsid}`);
         
         deleteddiv.remove();
+    
+        --cartDivCount;
+       cartQuantityCounter(cartDivCount);
+
+       if(cartDivCount === 0){
+        localStorage.removeItem('cart');
+       }
     })
 });
 
 
+// let updatetextspan = document.querySelector('.QuantityText');
 
 
+// let updatefirsttext = updatetextspan.childNodes[0];
+  
+// let matchingProductId;
 
+// cart.forEach((productID)=>{
+
+//     let productIDs = productID.id;
+
+//     amazondataobj.forEach((matchingitems)=>{
+//     if (String(matchingitems.id) === String(productIDs)) {
+//             matchingProductId = matchingitems;
+//         }
+// })
+
+// })
+
+// console.log(matchingProductId);
+
+let matchingProId = matchingProduct.id;
+
+
+function updatetextoflink(matchingProd){
+   //first clicking on the update button which needs to add event listener to it.
+   //after clicking update link it should change the whole html of the main container content.
+   //innerHTMl should appear has <input type="number" min='0' max='100' value='0'><button>Save</button>
+   //after clicking on the save button it should update the count in first main container content.
+   //And when clicking again it should do the same process.
+
+   let quantityText = document.querySelector('.QuantityText');
+   console.log(quantityText);
+   let updateButton = document.querySelector('.updateLink');
+   updateButton.addEventListener('click', ()=>{
+     quantityText.innerHTML = `<input type='number' min='1' max='100' id='saveinput'><button id="saveUpdateBtn">Save</button>`;
+
+
+     let saveUpdateBtn = document.querySelector('#saveUpdateBtn');
+
+   saveUpdateBtn.addEventListener('click', ()=>{
+    let saveInputEl = document.querySelector('#saveinput');
+    let saveInputValue = saveInputEl.value;
+    quantityText.innerHTML = `<span class="QuantityText">${saveInputValue}<button class="updateLink checkoutcardlinks" id='data-productUpdateId-${matchingProd}'>Update</button></span>`;
+
+    updatetextoflink(matchingProd);
+    console.log(quantityText);
+   });
+});
+   
+   
+};
+
+updatetextoflink(matchingProId);

@@ -1,7 +1,8 @@
 //imported the objects and variable data require for storage
 
 import {amazondataobj, Ullistname} from '../data/amazondata.js';
-import {cart, addToCart, increaseCartQuantity} from '../data/cart.js';
+import {cart, addToCart, increaseCartQuantity, cartupdate} from '../data/cart.js';
+
 
 
 // Element for creating the language dropdown
@@ -67,13 +68,31 @@ let maindisplayitems = document.querySelector('main');
 
 maindisplayitems.innerHTML = cartproductsitems;
 
+let cartCountEL = document.querySelector('#cartquantity') ;
 
 document.querySelectorAll('#addtocartbtn').forEach((button)=>{
-    button.addEventListener('click',function(){
+
+    button.addEventListener('click',function(event){
         let productid = button.dataset.productId;
         console.log(productid);
         addToCart(productid);
-        let cartCountEL = document.querySelector('#cartquantity');
-        cartCountEL.textContent = increaseCartQuantity();
+        cartCountEL.textContent = increaseCartQuantity(); 
+    });
+
+    cartCountEL.textContent = cart.length;
 });
-});
+
+
+//search input box interactivity is here....
+
+let searchBox = document.querySelector('#inputSearchBox');
+
+console.log(searchBox);
+
+// function changeMaindivContent(){
+//  amazondataobj.forEach((cardboxes)=>{
+    
+//  })
+// }
+
+// console.log(changeMaindivContent());

@@ -58,6 +58,12 @@ export function removeFromCart(cartitem){
    saveToLocalStorage();
 }
 
-localStorage.removeItem('cart');
 
+// localStorage.removeItem('cart');
 
+let cartLength = cart.length;
+export function cartupdate(cartlen){
+    return cartlen;
+}
+
+console.log(cartupdate(cartLength));
